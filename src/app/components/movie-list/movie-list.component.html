@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>List of movies</h1>
+
+  <a href="#" routerLink="/components/movie-add" class="btn btn-success">Create New Post</a>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Director</th>
+        <th>Release Date</th>
+        <th>Genre</th>
+        <th width="250px">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of movies; let i = index">
+        <td>{{ movie.id }}</td>
+        <td>{{ movie.title }}</td>
+        <td>{{ movie.description }}</td>
+        <td>{{ movie.director }}</td>
+        <td>{{ movie.releaseDate | date }}</td>
+        <td>{{ movie.genre }}</td>
+        <!-- Actions buttons -->
+        <button (click)="deleteMovie(movie.id)">Delete</button>
+        <button (click)="navigateToAddMovie()">Edit</button>
+     </tr>
+    </tbody>
+  </table>
+</div>
